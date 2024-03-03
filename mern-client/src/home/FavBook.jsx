@@ -25,7 +25,7 @@ const FavBook = () => {
                         <p className='text-base'> PDF Downloads</p>
                     </div>
                 </div>
-                <Link to='/shop' className='mt-12 block'> <button className='bg-blue-700 text-white font-semibold px-5 py-2 rounded hover:bg-black transition ease-linear'>Explore More</button> </Link>
+                <Link to='/shop' className='mt-12 block'> <button className='bg-blue-700 text-white font-semibold px-5 py-2 rounded hover:bg-black transition-all ease-linear duration-300'>Explore More</button> </Link>
             </div>
         </div>
     )
