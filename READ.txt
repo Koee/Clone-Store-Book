@@ -3,3 +3,9 @@
 
 --RUN SERVER BOOK-SERVER 
 npm run start
+
+-- PLUGINS USE IN PPROJECT
+.monogodb 
+.slide -- swiperjs
+.css -- tailwindcss 
+.UI -- flowbite-react 

@@ -10,7 +10,7 @@ const HOME = () => {
   return (
     <div className=''>
       {/* <div className='h-screen'>HOME</div> */}
-      <Banner></Banner>
+      <Banner/>
       <BestSellerBooks />
       <FavBook />
       <PromoBanner />

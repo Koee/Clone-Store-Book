@@ -1,7 +1,6 @@
 .banner .swiper {
-  width: 240px;
-  height: 320px;
-
+  width: 16vw;
+  height: 32vh;
 }
 
 .banner .swiper-slide {
@@ -12,7 +11,7 @@
   font-size: 22px;
   font-weight: bold;
   color: #fff;
-  /* object-fit: contain; */
+  object-fit: contain;
 }
 
 .banner .swiper-slide:nth-child(1n) {

@@ -3,8 +3,8 @@ import BannerCard from '../home/BannerCard'
 
 const Banner = () => {
     return (
-        <div className='px-4 lg:px-24 bg-teal-200 flex items-center'>
-            <div className='flex w-full flex-col md:flex-row justify-between items-center gap-12 py-40'>
+        <div className='px-4 lg:px-24 bg-teal-100 flex items-center'>
+            <div className='flex w-full flex-col md:flex-row justify-around items-center gap-10 py-40'>
                 <div className='md:w-1/2 h-full space-y-8'>
                     <h2 className='text-5xl font-bold leading-snug text-black'> Buy and Sell Your Books <span className='text-blue-500'>for the Best Prices</span></h2>
                     <p className='md:w-4/5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum neque esse velit necessitatibus sint numquam consequuntur ipsum, fugiat, maiores corporis libero deserunt quae quidem itaque earum! Quidem voluptate exercitationem hic.</p>
