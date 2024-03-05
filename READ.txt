@@ -15,5 +15,6 @@ npm run start
 .npm i express (SERVER)
 .connection monogodb (DB)
 -FE
+.npm i flowbite-react
 .npm create vite ( tailwinds ) create project with Tailwinds + Vite
 .npm i react-router-dom (router)
