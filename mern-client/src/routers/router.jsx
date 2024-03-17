@@ -16,6 +16,7 @@ import DaskBoard from "../dashboard/DaskBoard";
 import DaskBoardManager from "../dashboard/DaskBoardManager";
 import EditBook from "../dashboard/EditBook";
 import DashBoardCreateBook from "../dashboard/DashBoardCreateBook";
+import SignUp from "../components/SignUp";
 
 
 const Router = createBrowserRouter([
@@ -68,6 +69,10 @@ const Router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:4001/book/${params.id}`)
             },
         ]
+    },
+    {
+        path: 'sign-up',
+        element: <SignUp />
     }
 ]);
 
