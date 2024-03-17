@@ -17,6 +17,8 @@ import DaskBoardManager from "../dashboard/DaskBoardManager";
 import EditBook from "../dashboard/EditBook";
 import DashBoardCreateBook from "../dashboard/DashBoardCreateBook";
 import SignUp from "../components/SignUp";
+import Login from "../components/Login";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 
 const Router = createBrowserRouter([
@@ -53,7 +55,7 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/admin/dashboard",
-                element: <DaskBoard />
+                element: <PrivateRoute><DaskBoard></DaskBoard></PrivateRoute>
             },
             {
                 path: "/admin/dashboard/update",
@@ -73,6 +75,10 @@ const Router = createBrowserRouter([
     {
         path: 'sign-up',
         element: <SignUp />
+    },
+    {
+        path: "login",
+        element: <Login />
     }
 ]);
 

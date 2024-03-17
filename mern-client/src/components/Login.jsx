@@ -4,8 +4,8 @@ import { AuthContext } from '../contects/AuthProvider'
 
 import googleLogo from "../assets/google-logo.svg";
 
-const SignUp = () => {
-    const { createUser, loginWithGG } = useContext(AuthContext)
+const Login = () => {
+    const { login, loginWithGG } = useContext(AuthContext)
     const [error, setErr] = useState('error');
 
     const location = useLocation();
@@ -14,26 +14,24 @@ const SignUp = () => {
     const from = location.state?.pathname || "/"
 
     //register with Gmail
-    const handleSignUp = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
 
         // console.log(email, password);
-        createUser(email, password).then((userCredential) => {
-            // Signed up 
+        login(email, password).then((userCredential) => {
+            // Signed in 
             const user = userCredential.user;
-            alert("Sign up succesfully!")
+            alert(`Login successfully !`)
             navigate(from, { replace: true })
-
+            // ...
         })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                // ..
-                setErr(errorMessage)
-            });;
+            });
     };
 
     //signin GG
@@ -50,7 +48,6 @@ const SignUp = () => {
                 setErr(errorMessage)
             });;
     }
-
     return (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
             <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -60,10 +57,10 @@ const SignUp = () => {
                 <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
                     <div className="max-w-md mx-auto">
                         <div>
-                            <h1 className="text-2xl font-semibold">Sign Up Form</h1>
+                            <h1 className="text-2xl font-semibold">LOGIN Form</h1>
                         </div>
                         <div className="divide-y divide-gray-200">
-                            <form onSubmit={handleSignUp} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                            <form onSubmit={handleLogin} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <div className="relative">
                                     <input id="email" name="email" type="text" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
 
@@ -72,7 +69,7 @@ const SignUp = () => {
                                     <input id="password" name="password" type="password" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
 
                                 </div>
-                                <p>If your have an account. Please <Link to="/login" className='text-base text-blue-500 underline'>login</Link > Here</p>
+                                <p>If your haven't an account. Please <Link to="/sign-up" className='text-base text-blue-500 underline'>Sign up</Link > Here</p>
                                 <div className="relative">
                                     <button className="bg-blue-500 text-white rounded-md px-4 py-2">Submit</button>
                                 </div>
@@ -89,4 +86,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default Login
