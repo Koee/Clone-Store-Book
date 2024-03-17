@@ -6,7 +6,7 @@ import googleLogo from "../assets/google-logo.svg";
 
 const Login = () => {
     const { login, loginWithGG } = useContext(AuthContext)
-    const [error, setErr] = useState('error');
+    const [error, setErr] = useState('');
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -64,15 +64,18 @@ const Login = () => {
                             <form onSubmit={handleLogin} className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <div className="relative">
                                     <input id="email" name="email" type="text" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
-
                                 </div>
+
                                 <div className="relative">
                                     <input id="password" name="password" type="password" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
-
                                 </div>
+                                {error ? <p className='text-red-700 text-base'>
+                                    Email or  Password is not correct
+                                </p> : ``}
+
                                 <p>If your haven't an account. Please <Link to="/sign-up" className='text-base text-blue-500 underline'>Sign up</Link > Here</p>
                                 <div className="relative">
-                                    <button className="bg-blue-500 text-white rounded-md px-4 py-2">Submit</button>
+                                    <button className="bg-blue-500 text-white rounded-md px-4 py-2">Submit Login</button>
                                 </div>
                             </form>
                         </div>
