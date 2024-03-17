@@ -19,6 +19,7 @@ import DashBoardCreateBook from "../dashboard/DashBoardCreateBook";
 import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import LogOut from "../components/LogOut";
 
 
 const Router = createBrowserRouter([
@@ -79,7 +80,11 @@ const Router = createBrowserRouter([
     {
         path: "login",
         element: <Login />
-    }
+    },
+    {
+        path: "logout",
+        element: <LogOut />
+    },
 ]);
 
 export default Router;
