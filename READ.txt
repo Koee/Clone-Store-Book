@@ -8,12 +8,18 @@ npm run start
 .monogodb 
 .slide -- swiperjs
 .css -- tailwindcss 
-.UI -- flowbite-react 
+.UI
+ -- flowbite-react 
+ -- tailwindcomponents ( form signup )
 
+ 
 -- SETUP ENV 
 -BE
 .npm i express (SERVER)
 .connection monogodb (DB)
+.firebase (realtime database)
+..npm install firebase
+.Vite (because project use Vite) (.env.local)
 -FE
 .npm i flowbite-react
 .npm create vite ( tailwinds ) create project with Tailwinds + Vite

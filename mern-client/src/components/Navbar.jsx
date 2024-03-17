@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 //react icon
 import { FaBarsStaggered, FaBlog, FaXmark } from "react-icons/fa6";
+import { AuthContext } from '../contects/AuthProvider';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
-
+    const { user } = useContext(AuthContext);
+    // console.log(user)
     //toggle menu
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -35,12 +37,13 @@ const Navbar = () => {
         { link: "Home", path: "/" },
         { link: "About", path: "/about" },
         { link: "Shop", path: "/shop" },
-        { link: "Sell your Book", path: "/admin/dashboard" },
         { link: "Blog", path: "/blog" },
+        { link: "Admin", path: "/admin/dashboard" },
+
     ]
     return (
         <header className='w-full bg-blue-400 fixed top-0 left-0 right-0 transition-all ease-linear duration-300 z-10'>
-            <nav className={`py-4 lg:px-24 px-4 ${isSticky?"static top-0 left-0 right-0 bg-blue-300":""}`}>
+            <nav className={`py-4 lg:px-24 px-4 ${isSticky ? "static top-0 left-0 right-0 bg-blue-300" : ""}`}>
                 <div className='flex justify-between items-center text-base gap-8'>
                     {/*logo*/}
                     <Link to="/" className='text-2xl font-bold text-blue-700 flex items-center gap-2'><FaBlog className='inline-block' />Books</Link>
@@ -51,8 +54,12 @@ const Navbar = () => {
                         }
                     </ul>
                     {/*btn lg devices*/}
+                
                     <div className='lg:flex items-center space-x-12 hidden'>
                         <button><FaBarsStaggered className='w-5 hover:text-blue-50' /></button>
+                        {/* {
+                            user ? `${user.email}` : ""
+                        } */}
                     </div>
                     {/* menu btn for mode mobile*/}
                     <div className='md:hidden'>
