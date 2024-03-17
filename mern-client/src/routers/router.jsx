@@ -11,11 +11,11 @@ import About from "../components/About";
 import SingleBook from "../components/SingleBook";
 import Blog from "../components/Blog";
 import SingleBooks from "../shop/SingleBooks";
-import DaskBoardLayout from "../daskboard/DaskBoardLayout";
-import DaskBoard from "../daskboard/DaskBoard";
-import DaskBoardUpdate from "../daskboard/DaskBoardUpdate";
-import DaskBoardManager from "../daskboard/DaskBoardManager";
-import EditBook from "../daskboard/EditBook";
+import DaskBoardLayout from "../dashboard/DaskBoardLayout";
+import DaskBoard from "../dashboard/DaskBoard";
+import DaskBoardManager from "../dashboard/DaskBoardManager";
+import EditBook from "../dashboard/EditBook";
+import DashBoardCreateBook from "../dashboard/DashBoardCreateBook";
 
 
 const Router = createBrowserRouter([
@@ -56,14 +56,14 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/admin/dashboard/update",
-                element: <DaskBoardUpdate />
+                element: <DashBoardCreateBook />
             },
             {
                 path: "/admin/dashboard/manager",
                 element: <DaskBoardManager />
             },
             {
-                path: "/admin/dashboard/edit-books:id",
+                path: "/admin/dashboard/edit-books/:id",
                 element: <EditBook />,
                 loader: ({ params }) => fetch(`http://localhost:4001/book/${params.id}`)
             },

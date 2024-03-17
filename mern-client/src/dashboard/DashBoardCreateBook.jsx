@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Button, Checkbox, Label, TextInput, Textarea } from 'flowbite-react';
 
-const DaskBoardUpdate = () => {
+const DashBoardCreateBook = () => {
   const bookCategories = [
     "Fiction",
     "Dramma",
-    "Detected"
+    "Detected",
+    "Take/Note"
   ];
   const [selectedBookCategory, setSelectedBookCategory] = useState(bookCategories[0]);
 
@@ -26,25 +27,26 @@ const DaskBoardUpdate = () => {
     const bookDescription = form.bookDescription.value;
     const category = form.categoryName.value;
     const bookPdfUrl = form.bookPdfUrl.value;
-    const objBook = {
-      bookTitle, authorName, imageURL, bookDescription, bookPdfUrl, category
+    const price = form.price.value;
+    const objBookUpdate = {
+      bookTitle, authorName, imageURL, bookDescription, bookPdfUrl, category, price
     }
     console.log(objBook)
     //test send data form 
-    // fetch('http://localhost:4001/upload-book', {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(objBook),
-    // }).then(res => res.json()).then(data =>{
-    //   alert("Create Book Successfully!")
-    // });
+    fetch('http://localhost:4001/upload-book', {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(objBookUpdate),
+    }).then(res => res.json()).then(data => {
+      alert("Create Book Successfully!");
+    });
 
   }
   return (
     <div className='px-4 my-12'>
-      <h2 mb-8 text-3xl font-bold>UPDATE A BOOK</h2>
+      <h2 mb-8 text-3xl font-bold>CREATE A BOOK</h2>
       <form onSubmit={handleOnSubmit} action="" className='flex lg:w-[1180px] flex-col flex-wrap gap-4'>
         <div className='flex gap-8'>
           <div className='lg:w-1/2'>
@@ -95,10 +97,16 @@ const DaskBoardUpdate = () => {
             value="bookPdfUrl" />
           <TextInput id="bookPdfUrl" type="bookPdfUrl" placeholder="Book PdfUrl" required />
         </div>
-        <Button type='submit' className='rounded mt-5'>UPDATE BOOK</Button>
+        <div className='lg:w-full'>
+          <Label
+            htmlFor="price"
+            value="price" />
+          <TextInput id="price" type="price" placeholder="Book Price" required />
+        </div>
+        <Button type='submit' className='rounded mt-5'>ACCEPT</Button>
       </form>
     </div>
   )
 }
 
-export default DaskBoardUpdate
+export default DashBoardCreateBook

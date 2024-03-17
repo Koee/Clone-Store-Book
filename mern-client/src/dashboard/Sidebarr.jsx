@@ -16,7 +16,7 @@ const Sidebarr = () => {
                             Dashboard
                         </Sidebar.Item>
                         <Sidebar.Item href="/admin/dashboard/update" icon={HiCloudUpload}>
-                            Update-Book
+                            Create/Update-Book
                         </Sidebar.Item>
                         <Sidebar.Item href="/admin/dashboard/manager" icon={HiUser}>
                             Manager-DaskBoard

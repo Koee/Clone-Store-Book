@@ -35,12 +35,13 @@ const Navbar = () => {
         { link: "Home", path: "/" },
         { link: "About", path: "/about" },
         { link: "Shop", path: "/shop" },
-        { link: "Sell your Book", path: "/admin/dashboard" },
         { link: "Blog", path: "/blog" },
+        { link: "Admin", path: "/admin/dashboard" },
+
     ]
     return (
         <header className='w-full bg-blue-400 fixed top-0 left-0 right-0 transition-all ease-linear duration-300 z-10'>
-            <nav className={`py-4 lg:px-24 px-4 ${isSticky?"static top-0 left-0 right-0 bg-blue-300":""}`}>
+            <nav className={`py-4 lg:px-24 px-4 ${isSticky ? "static top-0 left-0 right-0 bg-blue-300" : ""}`}>
                 <div className='flex justify-between items-center text-base gap-8'>
                     {/*logo*/}
                     <Link to="/" className='text-2xl font-bold text-blue-700 flex items-center gap-2'><FaBlog className='inline-block' />Books</Link>
