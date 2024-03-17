@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Sidebar } from 'flowbite-react';
 import { HiArrowSmRight, HiChartPie, HiCloudUpload, HiInbox, HiShoppingBag, HiSupport, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import ImgUserDask from "../assets/img-daskboard/profile.jpg"
+import { AuthContext } from '../contects/AuthProvider';
 
 const Sidebarr = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user)
     return (
         <div>
             <Sidebar aria-label="Sidebar with content separator example">
-                <Sidebar.Logo href="#" img={ImgUserDask} imgAlt="Flowbite logo">
-                    Flowbite
+                <Sidebar.Logo href="#" img={user.photoURL ? user.photoURL : ImgUserDask} imgAlt="Flowbite logo" >
+                    {user.displayName ? user.displayName : `Default Name`}
                 </Sidebar.Logo>
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>
@@ -16,7 +19,7 @@ const Sidebarr = () => {
                             Dashboard
                         </Sidebar.Item>
                         <Sidebar.Item href="/admin/dashboard/update" icon={HiCloudUpload}>
-                            Update-Book
+                            Create/Update-Book
                         </Sidebar.Item>
                         <Sidebar.Item href="/admin/dashboard/manager" icon={HiUser}>
                             Manager-DaskBoard
